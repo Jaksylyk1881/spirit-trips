@@ -27,8 +27,8 @@ class _PassangerBaseState extends State<Base> {
         },
         destinations: const [
           NavigationDestination(
-            icon: Icon(Icons.tab),
-            selectedIcon: Icon(Icons.tab),
+            icon: Icon(Icons.home),
+            selectedIcon: Icon(Icons.home),
             label: 'Forum',
           ),
           NavigationDestination(

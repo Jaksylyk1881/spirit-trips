@@ -1,5 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:spirittrips/src/core/resources/resources.dart';
+import 'package:spirittrips/src/core/router/app_router.dart';
 
 class CategoryCard extends StatelessWidget {
   const CategoryCard({
@@ -18,7 +20,13 @@ class CategoryCard extends StatelessWidget {
         color: Colors.transparent,
         child: InkWell(
           borderRadius: BorderRadius.circular(16),
-          onTap: () {},
+          onTap: () {
+            context.router.push(
+              ForumDetailRoute(
+                title: 'Подготовка к паломничеству',
+              ),
+            );
+          },
           child: Padding(
             padding: const EdgeInsets.only(left: 15).copyWith(right: 0),
             child: const Column(

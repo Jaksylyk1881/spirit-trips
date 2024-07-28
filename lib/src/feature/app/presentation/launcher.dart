@@ -9,6 +9,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:spirittrips/src/core/utils/snackbar_util.dart';
 import 'package:spirittrips/src/feature/app/bloc/app_bloc.dart';
 import 'package:spirittrips/src/feature/app/presentation/base.dart';
+import 'package:spirittrips/src/feature/app/presentation/onboard_1.dart';
 import 'package:spirittrips/src/feature/app/widgets/custom_loading_widget.dart';
 
 // ignore: unused_element
@@ -79,7 +80,7 @@ class _LauncherState extends State<Launcher> with WidgetsBindingObserver {
           inAppState: (user) {
             return const Base();
           },
-          // notAuthorizedState: () => const OnboardingPage(),
+          notAuthorizedState: () => const OnBoardingScreen(),
           orElse: () => const CustomLoadingWidget(isError: true),
         );
       },

@@ -35,5 +35,9 @@ class AppRouter extends _$AppRouter {
         ///Main
         ///
         AutoRoute(page: MainRoute.page),
+
+        AutoRoute(page: ForumRoute.page),
+        AutoRoute(page: ForumDetailRoute.page),
+        AutoRoute(page: QuestionDetailRoute.page),
       ];
 }

@@ -1,6 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:spirittrips/gen/assets.gen.dart';
 import 'package:spirittrips/src/core/resources/resources.dart';
+import 'package:spirittrips/src/core/router/app_router.dart';
+import 'package:spirittrips/src/feature/app/bloc/app_bloc.dart';
+import 'package:spirittrips/src/feature/auth/model/user_dto.dart';
 import 'package:spirittrips/src/feature/auth/presentation/widgets/custom_button.dart';
 
 class OnBoard3 extends StatefulWidget {
@@ -117,7 +122,11 @@ class _OnBoard3State extends State<OnBoard3> {
               const Spacer(),
               CustomButton(
                 text: 'Бисмиллях',
-                onTap: () {},
+                onTap: () {
+                  BlocProvider.of<AppBloc>(context)
+                      .add(const AppEvent.chageState(state: AppState.inAppState(user: UserDTO())));
+                  context.router.popUntil((route) => route.settings.name == LauncherRoute.name);
+                },
                 textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.white),
               ),
             ],

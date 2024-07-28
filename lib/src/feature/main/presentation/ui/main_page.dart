@@ -6,6 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:spirittrips/gen/assets.gen.dart';
 import 'package:spirittrips/gen/fonts.gen.dart';
 import 'package:spirittrips/src/core/resources/resources.dart';
+import 'package:spirittrips/src/core/router/app_router.dart';
+import 'package:spirittrips/src/feature/auth/presentation/widgets/custom_button.dart';
+import 'package:spirittrips/src/feature/main/presentation/ui/count_time_bottom_sheet.dart';
 import 'package:spirittrips/src/feature/main/presentation/widgets/category_card.dart';
 import 'package:spirittrips/src/feature/main/presentation/widgets/forum_question_card.dart';
 import 'package:spirittrips/src/feature/main/presentation/widgets/main_banner_widget.dart';
@@ -27,63 +30,78 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      top: false,
-      child: CustomScrollView(
-        slivers: [
-          SliverPersistentHeader(
-            delegate: _SliverAppBar(
-              expandedHeight: MediaQuery.of(context).size.height / 2,
-              image: Assets.images.kaaba.path,
-            ),
-          ),
-          SliverPadding(
-            padding: const EdgeInsets.all(16).copyWith(bottom: 0),
-            sliver: SliverList.list(
-              children: [
-                const MainBannerWidget(),
-                const SizedBox(
-                  height: 16,
-                ),
-                TitleRow(
-                  title: 'Обсуждения на форуме',
-                  onTap: () {},
-                ),
-                const SizedBox(
-                  height: 8,
-                ),
-                SizedBox(
-                  height: 150,
-                  child: ListView.separated(
-                    separatorBuilder: (context, index) => const SizedBox(
-                      width: 10,
-                    ),
-                    itemCount: 10,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) => const ForumQuestionCard(),
-                  ),
-                ),
-                const SizedBox(
-                  height: 8,
-                ),
-                const TitleRow(title: 'Категории обсуждаемых тем'),
-              ],
-            ),
-          ),
-          SliverPadding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            sliver: SliverGrid.builder(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                mainAxisSpacing: 10,
-                crossAxisSpacing: 10,
-                childAspectRatio: 194 / 75,
+    return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: CustomButton(
+          text: 'Расчитать время намаза в Аль-Харам',
+          height: 50,
+          onTap: () {
+            CountTimeBottomSheet.show(context);
+          },
+        ),
+      ),
+      body: SafeArea(
+        top: false,
+        child: CustomScrollView(
+          slivers: [
+            SliverPersistentHeader(
+              delegate: _SliverAppBar(
+                expandedHeight: MediaQuery.of(context).size.height / 2,
+                image: Assets.images.kaaba.path,
               ),
-              itemCount: 10,
-              itemBuilder: (context, index) => const CategoryCard(),
             ),
-          ),
-        ],
+            SliverPadding(
+              padding: const EdgeInsets.all(16).copyWith(bottom: 0),
+              sliver: SliverList.list(
+                children: [
+                  const MainBannerWidget(),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  TitleRow(
+                    title: 'Обсуждения на форуме',
+                    onTap: () {
+                      context.router.push(const ForumRoute());
+                    },
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  SizedBox(
+                    height: 150,
+                    child: ListView.separated(
+                      separatorBuilder: (context, index) => const SizedBox(
+                        width: 10,
+                      ),
+                      itemCount: 10,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) => const ForumQuestionCard(),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  const TitleRow(title: 'Категории обсуждаемых тем'),
+                ],
+              ),
+            ),
+            SliverPadding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              sliver: SliverGrid.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 10,
+                  crossAxisSpacing: 10,
+                  childAspectRatio: 194 / 75,
+                ),
+                itemCount: 10,
+                itemBuilder: (context, index) => const CategoryCard(),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
