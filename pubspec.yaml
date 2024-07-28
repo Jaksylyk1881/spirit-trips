@@ -73,25 +73,22 @@ flutter:
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
-  # For details regarding adding assets from package dependencies, see
-  # https://flutter.dev/assets-and-images/#from-packages
-
-  # To add custom fonts to your application, add a fonts section here,
-  # in this "flutter" section. Each entry in this list should have a
-  # "family" key with the font family name, and a "fonts" key with a
-  # list giving the asset and other descriptors for the font. For
-  # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
-  #
-  # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/custom-fonts/#from-packages
+  fonts:
+    - family: AvenirNext
+      fonts:
+        - asset: assets/fonts/Avenir-Next/AvenirNextCyr-Bold.ttf
+        - asset: assets/fonts/Avenir-Next/AvenirNextCyr-BoldItalic.ttf
+        - asset: assets/fonts/Avenir-Next/AvenirNextCyr-Demi.ttf
+        - asset: assets/fonts/Avenir-Next/AvenirNextCyr-DemiItalic.ttf
+        - asset: assets/fonts/Avenir-Next/AvenirNextCyr-Heavy.ttf
+        - asset: assets/fonts/Avenir-Next/AvenirNextCyr-HeavyItalic.ttf
+        - asset: assets/fonts/Avenir-Next/AvenirNextCyr-Italic.ttf
+        - asset: assets/fonts/Avenir-Next/AvenirNextCyr-Light.ttf
+        - asset: assets/fonts/Avenir-Next/AvenirNextCyr-LightItalic.ttf
+        - asset: assets/fonts/Avenir-Next/AvenirNextCyr-Medium.ttf
+        - asset: assets/fonts/Avenir-Next/AvenirNextCyr-MediumItalic.ttf
+        - asset: assets/fonts/Avenir-Next/AvenirNextCyr-Regular.ttf
+        - asset: assets/fonts/Avenir-Next/AvenirNextCyr-Thin.ttf
+        - asset: assets/fonts/Avenir-Next/AvenirNextCyr-ThinItalic.ttf
+        - asset: assets/fonts/Avenir-Next/AvenirNextCyr-UltraLight.ttf
+        - asset: assets/fonts/Avenir-Next/AvenirNextCyr-UltraLightIt.ttf

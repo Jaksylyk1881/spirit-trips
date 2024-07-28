@@ -5,6 +5,7 @@ class CustomButton extends StatelessWidget {
   final Color? bgColor;
   final Border? border;
   final double? height;
+  final double? width;
   final TextStyle? textStyle;
   final Function()? onTap;
   final String text;
@@ -20,13 +21,14 @@ class CustomButton extends StatelessWidget {
     this.textStyle,
     this.padding,
     this.child,
+    this.width,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: height,
-      width: double.infinity,
+      width: width ?? double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         color: bgColor ?? AppColors.mainColor,

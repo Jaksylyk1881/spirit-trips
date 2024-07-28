@@ -3,7 +3,7 @@ part of 'resources.dart';
 class AppColors {
   static const Color static = Color(0xFFFFFFFF);
 
-  static const Color mainColor = Color(0xFF2F4C78);
+  static const Color mainColor = Color(0xFFD1A977);
 
   static const Color ligthBlue = Color(0xff597093);
 

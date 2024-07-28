@@ -2,7 +2,7 @@ part of 'resources.dart';
 
 mixin AppTheme {
   static ThemeData get light => ThemeData(
-        // fontFamily: FontFamily.nunito,
+        fontFamily: FontFamily.avenirNext,
         textTheme: const TextTheme(
           displayLarge: TextStyle(color: Colors.black),
           displayMedium: TextStyle(color: Colors.black),
