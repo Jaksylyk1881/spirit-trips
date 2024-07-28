@@ -30,16 +30,16 @@ class CustomButton extends StatelessWidget {
       height: height,
       width: width ?? double.infinity,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(100),
         color: bgColor ?? AppColors.mainColor,
         border: border,
       ),
       child: Material(
         color: Colors.transparent,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(100),
         child: InkWell(
           onTap: onTap,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(100),
           child: Padding(
             padding: padding ?? const EdgeInsets.symmetric(vertical: 14),
             child: Center(

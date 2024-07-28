@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:spirittrips/src/feature/app/presentation/launcher.dart';
+import 'package:spirittrips/src/feature/app/presentation/onboard_1.dart';
 import 'package:spirittrips/src/feature/auth/presentation/auth_presentation.dart';
 import 'package:spirittrips/src/feature/main/presentation/main_presentation.dart';
 

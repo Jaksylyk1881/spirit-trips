@@ -56,6 +56,7 @@ class MyApp extends StatelessWidget {
       createRouter: (context) => AppRouter(),
       builder: (context, parser, routerDelegate) => GlobalScope(
         child: MaterialApp.router(
+          debugShowCheckedModeBanner: false,
           routeInformationParser: parser,
           routerDelegate: routerDelegate,
           theme: AppTheme.light,
