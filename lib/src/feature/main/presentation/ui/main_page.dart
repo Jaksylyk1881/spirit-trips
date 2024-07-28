@@ -6,8 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:spirittrips/gen/assets.gen.dart';
 import 'package:spirittrips/gen/fonts.gen.dart';
 import 'package:spirittrips/src/core/resources/resources.dart';
+import 'package:spirittrips/src/feature/main/presentation/widgets/category_card.dart';
 import 'package:spirittrips/src/feature/main/presentation/widgets/forum_question_card.dart';
 import 'package:spirittrips/src/feature/main/presentation/widgets/main_banner_widget.dart';
+import 'package:spirittrips/src/feature/main/presentation/widgets/title_row.dart';
 
 @RoutePage()
 class MainPage extends StatefulWidget {
@@ -36,40 +38,19 @@ class _MainPageState extends State<MainPage> {
             ),
           ),
           SliverPadding(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16).copyWith(bottom: 0),
             sliver: SliverList.list(
               children: [
                 const MainBannerWidget(),
                 const SizedBox(
-                  height: 12,
+                  height: 16,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
-                      'Обсуждения на форуме',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    CupertinoButton(
-                      padding: EdgeInsets.zero,
-                      onPressed: () {},
-                      child: Text(
-                        'Посмотреть все',
-                        style: TextStyle(
-                          fontSize: 10,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.black.withOpacity(0.5),
-                          decoration: TextDecoration.underline,
-                        ),
-                      ),
-                    ),
-                  ],
+                TitleRow(
+                  title: 'Обсуждения на форуме',
+                  onTap: () {},
                 ),
                 const SizedBox(
-                  height: 16,
+                  height: 8,
                 ),
                 SizedBox(
                   height: 150,
@@ -82,7 +63,24 @@ class _MainPageState extends State<MainPage> {
                     itemBuilder: (context, index) => const ForumQuestionCard(),
                   ),
                 ),
+                const SizedBox(
+                  height: 8,
+                ),
+                const TitleRow(title: 'Категории обсуждаемых тем'),
               ],
+            ),
+          ),
+          SliverPadding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            sliver: SliverGrid.builder(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 10,
+                crossAxisSpacing: 10,
+                childAspectRatio: 194 / 75,
+              ),
+              itemCount: 10,
+              itemBuilder: (context, index) => const CategoryCard(),
             ),
           ),
         ],
