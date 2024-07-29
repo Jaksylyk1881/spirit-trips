@@ -28,6 +28,19 @@ class _MainPageState extends State<MainPage> {
     super.initState();
   }
 
+  List<(String, String)> catnames = [
+    ('Подготовка к паломничеству', Assets.icons.bookClosedFill2),
+    ('Документы и визы', Assets.icons.airplane),
+    ('Выбор и бронирование туров', Assets.icons.airplane),
+    ('Транспорт и проживание', Assets.icons.busDoubledecker),
+    ('Ритуалы и обряды', Assets.icons.figureMindAndBody),
+    ('Культура и этикет', Assets.icons.globe),
+    ('Питание и здоровье', Assets.icons.heartFill),
+    ('Безопасность и личная защита', Assets.icons.checkmarkShieldFill),
+    ('Финансовые вопросы', Assets.icons.dollarsign),
+    ('Общение и поддержка', Assets.icons.bubbleLeftAndTextBubbleRightFill),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,7 +101,7 @@ class _MainPageState extends State<MainPage> {
               ),
             ),
             SliverPadding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8).copyWith(bottom: 100),
               sliver: SliverGrid.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
@@ -96,8 +109,11 @@ class _MainPageState extends State<MainPage> {
                   crossAxisSpacing: 10,
                   childAspectRatio: 194 / 75,
                 ),
-                itemCount: 10,
-                itemBuilder: (context, index) => const CategoryCard(),
+                itemCount: catnames.length,
+                itemBuilder: (context, index) => CategoryCard(
+                  title: catnames[index].$1,
+                  icon: catnames[index].$2,
+                ),
               ),
             ),
           ],

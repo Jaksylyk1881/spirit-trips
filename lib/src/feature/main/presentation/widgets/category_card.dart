@@ -1,11 +1,16 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:spirittrips/src/core/resources/resources.dart';
 import 'package:spirittrips/src/core/router/app_router.dart';
 
 class CategoryCard extends StatelessWidget {
+  final String title;
+  final String icon;
   const CategoryCard({
     super.key,
+    required this.title,
+    required this.icon,
   });
 
   @override
@@ -23,26 +28,29 @@ class CategoryCard extends StatelessWidget {
           onTap: () {
             context.router.push(
               ForumDetailRoute(
-                title: 'Подготовка к паломничеству',
+                title: title,
               ),
             );
           },
           child: Padding(
             padding: const EdgeInsets.only(left: 15).copyWith(right: 0),
-            child: const Column(
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Icon(
-                      Icons.book,
-                      size: 15,
+                    SvgPicture.asset(
+                      icon,
                     ),
-                    Padding(
+                    // Icon(
+                    //   icon
+                    //   size: 15,
+                    // ),
+                    const Padding(
                       padding: EdgeInsets.only(right: 15),
                       child: Text(
                         'Ответов: 256',
@@ -51,19 +59,19 @@ class CategoryCard extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 2,
                 ),
                 Text(
-                  'Подготовка к паломничеству',
-                  style: TextStyle(fontSize: 10, fontWeight: FontWeight.w600),
+                  title,
+                  style: const TextStyle(fontSize: 10, fontWeight: FontWeight.w600),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 2,
                 ),
-                Row(
+                const Row(
                   children: [
                     Text(
                       'Перейти к обсуждению',
